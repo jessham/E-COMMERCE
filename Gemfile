@@ -35,6 +35,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
 
 gem 'puma'
 
+gem 'bcrypt'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

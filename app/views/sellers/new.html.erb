@@ -1,0 +1,26 @@
+<h1>Cadastro de vendedor</h1>
+
+<%= form_for @seller, :action => :new, :method => :post, :html => {class:""} do |f| %>
+
+    <%= f.label "Nome" %>
+    <%= f.text_field :nome %>
+
+    <%= f.label "Email" %>
+    <%= f.text_field :email %>
+
+    <%= f.label "Apelido" %>
+    <%= f.text_field :apelido %>
+
+    <%= f.label "CNPJ" %>
+    <%= f.text_field :cnpj %>
+
+    <%= f.label "Descrição" %>
+    <%= f.text_field :descricao %>
+
+    <%= f.label "Senha" %>
+    <%= f.password_field :password %>
+    <%= f.label "Confirme sua senha" %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Cadastrar" %>
+<% end %>

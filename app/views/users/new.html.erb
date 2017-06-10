@@ -1,0 +1,17 @@
+<h1>Cadastro de usuário</h1>
+
+<%= form_for @user, :action => :new, :method => :post, :html => {class:""} do |f| %>
+
+    <%= f.label "Nome" %>
+    <%= f.text_field :nome %>
+
+    <%= f.label "Email" %>
+    <%= f.text_field :email %>
+
+    <%= f.label "Senha" %>
+    <%= f.password_field :password %>
+
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Cadastrar" %>
+<% end %>

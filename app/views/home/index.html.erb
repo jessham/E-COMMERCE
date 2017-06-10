@@ -1,0 +1,35 @@
+<h1>E-COMMERCE - LBD</h1>
+
+<% if current_buyer %>
+
+<p>
+  Bem vindo, <%= current_buyer.nome %>!
+</p>
+
+<%= link_to "Perfil", edit_buyer_path(current_buyer) %>
+
+<%= link_to "Carrinho", ''%>
+
+<%= link_to "Sua compra", ''%>
+
+<%= link_to "Sair", '/buyerlogout'%>
+
+<% else %>
+
+<p>
+  Bem vindo!
+</p>
+
+<%= link_to "Login", '/buyerlogin' %>
+
+<br>
+
+<%= link_to "Cadastre-se", new_buyer_path %>
+
+<%= link_to "Sou vendedor", '/sellerlogin' %>
+
+<% end %>
+
+<br>
+
+<%= link_to "Produtos", ''%>
