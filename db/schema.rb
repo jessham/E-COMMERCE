@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170610181548) do
+ActiveRecord::Schema.define(version: 20170611024627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,26 @@ ActiveRecord::Schema.define(version: 20170610181548) do
     t.integer "quantidade"
   end
 
+  create_table "payment_types", force: :cascade do |t|
+    t.string "tipo", null: false
+  end
+
   create_table "products", force: :cascade do |t|
-    t.string   "nome",       null: false
-    t.string   "codigo",     null: false
-    t.string   "descricao",  null: false
+    t.string   "nome",             null: false
+    t.string   "codigo",           null: false
+    t.string   "descricao",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "store_id"
+    t.decimal  "preconormal",      null: false
+    t.decimal  "precopromocional"
+    t.integer  "estoqueatual",     null: false
+    t.integer  "estoquemax",       null: false
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.boolean  "isconcluida", null: false
+    t.boolean  "isativa",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,6 +73,34 @@ ActiveRecord::Schema.define(version: 20170610181548) do
     t.string   "password_digest", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "shipping_methods", force: :cascade do |t|
+    t.string   "formaentrega", null: false
+    t.decimal  "fretetaxa",    null: false
+    t.datetime "prazoentrega", null: false
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.decimal  "frete",       null: false
+    t.boolean  "isconcluida", null: false
+    t.boolean  "isativa",     null: false
+    t.datetime "dtentrega",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string   "nome",       null: false
+    t.integer  "telefone1",  null: false
+    t.integer  "telefone2"
+    t.string   "endereco",   null: false
+    t.integer  "numero",     null: false
+    t.string   "cidade",     null: false
+    t.string   "uf",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "seller_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -77,4 +121,6 @@ ActiveRecord::Schema.define(version: 20170610181548) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "products", "stores"
+  add_foreign_key "stores", "sellers"
 end

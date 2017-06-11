@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
 
   resources :home
-  resources :users
   resources :buyers
   resources :sellers
+  resources :products
+  resources :stores
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
+  get '/buyer-login' => 'buyer_sessions#new'
+  post '/buyer-login' => 'buyer_sessions#create'
+  get '/buyer-logout' => 'buyer_sessions#destroy'
 
-  get '/buyerlogin' => 'buyer_sessions#new'
-  post '/buyerlogin' => 'buyer_sessions#create'
-  get '/buyerlogout' => 'buyer_sessions#destroy'
-
-  get '/sellerlogin' => 'seller_sessions#new'
-  post '/sellerlogin' => 'seller_sessions#create'
-  get '/sellerlogout' => 'seller_sessions#destroy'
+  get '/seller-login' => 'seller_sessions#new'
+  post '/seller-login' => 'seller_sessions#create'
+  get '/seller-logout' => 'seller_sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

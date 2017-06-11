@@ -22,7 +22,7 @@ class SellersController < ApplicationController
 
         if @seller.save
             flash[:notice] = "Usuário cadastrado."
-            redirect_to '/sellerlogin'
+            redirect_to '/seller-login'
         else
             flash[:notice] = "Não foi possível completar o cadastro. Por favor verificar os dados novamente."
             redirect_to new_seller_path

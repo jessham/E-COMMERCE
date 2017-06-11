@@ -14,7 +14,7 @@ class BuyerSessionsController < ApplicationController
             redirect_to home_index_path
         else
             flash[:notice] = "Não foi possível completar o login. Por favor verificar os dados novamente."
-            redirect_to '/buyerlogin'
+            redirect_to '/buyer-login'
         end
     end
   

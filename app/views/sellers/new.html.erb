@@ -2,25 +2,29 @@
 
 <%= form_for @seller, :action => :new, :method => :post, :html => {class:""} do |f| %>
 
+    <%= flash[:notice] %>
+
+	<br>
+
     <%= f.label "Nome" %>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, required: true %>
 
     <%= f.label "Email" %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, required: true %>
 
     <%= f.label "Apelido" %>
-    <%= f.text_field :apelido %>
+    <%= f.text_field :apelido, required: true %>
 
     <%= f.label "CNPJ" %>
-    <%= f.text_field :cnpj %>
+    <%= f.text_field :cnpj, required: true %>
 
     <%= f.label "Descrição" %>
-    <%= f.text_field :descricao %>
+    <%= f.text_field :descricao, required: true %>
 
     <%= f.label "Senha" %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, required: true %>
     <%= f.label "Confirme sua senha" %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, required: true %>
 
     <%= f.submit "Cadastrar" %>
 <% end %>

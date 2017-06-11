@@ -12,7 +12,7 @@
 
 <%= link_to "Sua compra", ''%>
 
-<%= link_to "Sair", '/buyerlogout'%>
+<%= link_to "Sair", '/buyer-logout'%>
 
 <% else %>
 
@@ -20,13 +20,13 @@
   Bem vindo!
 </p>
 
-<%= link_to "Login", '/buyerlogin' %>
+<%= link_to "Login", '/buyer-login' %>
 
 <br>
 
 <%= link_to "Cadastre-se", new_buyer_path %>
 
-<%= link_to "Sou vendedor", '/sellerlogin' %>
+<%= link_to "Sou vendedor", '/seller-login' %>
 
 <% end %>
 

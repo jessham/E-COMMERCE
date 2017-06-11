@@ -14,7 +14,7 @@ class SellerSessionsController < ApplicationController
             redirect_to seller_path(@seller)
         else
             flash[:notice] = "Não foi possível completar o login. Por favor verificar os dados novamente."
-            redirect_to '/sellerlogin'
+            redirect_to '/seller-login'
         end
     end
   

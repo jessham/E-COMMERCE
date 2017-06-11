@@ -1,10 +1,14 @@
 <h1>Página inicial - vendedor </h1>
 
 <p>
-  Bem vindo, <%= current_user.nome %>!
+  Bem vindo, <%= current_user.nome %>! <%= link_to "Sair", '/seller-logout'%>
 </p>
 
-<%= link_to "Sair", '/sellerlogout'%>
+<%= flash[:notice] %>	<br>
+
+<%= link_to "Cadastrar um produto", new_product_path %>
+
+<%= link_to "Cadastrar uma loja", new_store_path %>
 
 <p>
   Suas vendas:
@@ -12,4 +16,8 @@
 
 <p>
   Seus produtos:
+</p>
+
+<p>
+  Suas lojas:
 </p>

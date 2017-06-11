@@ -1,0 +1,19 @@
+<h1>Editar produto</h1>
+
+<%= form_for @product, :html => {class:""} do |f| %>
+
+    <%= flash[:notice] %>
+
+	<br>
+
+    <%= f.label "Nome" %>
+    <%= f.text_field :nome %>
+
+    <%= f.label "Código" %>
+    <%= f.text_field :codigo %>
+
+    <%= f.label "Descrição" %>
+    <%= f.text_field :descricao %>
+
+    <%= f.submit "Atualizar" %>
+<% end %>

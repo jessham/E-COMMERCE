@@ -17,7 +17,7 @@ class BuyersController < ApplicationController
 
         if @buyer.save
             flash[:notice] = "Usuário cadastrado."
-            redirect_to '/buyerlogin'
+            redirect_to '/buyer-login'
         else
             flash[:notice] = "Não foi possível completar o cadastro. Por favor verificar os dados novamente."
             redirect_to new_buyer_path
