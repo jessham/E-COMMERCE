@@ -1,6 +1,8 @@
 <h1>Produtos</h1>
 
-<% if @products %>
+<% if @products.empty? %>
+    Nenhum produto encontrado.
+<% else %>
     <% @products.each do |p| %>
         Nome: <%= p.nome %>
         Descrição: <%= p.descricao %>
@@ -9,8 +11,6 @@
         <%= link_to "Ver mais detalhes", buyer_product_path(p) %>
         <br>
     <% end %>
-<% else %>
-    Nenhum produto encontrado.
 <% end %>
 
 <br>
