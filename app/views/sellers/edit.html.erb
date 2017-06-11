@@ -1,0 +1,30 @@
+<h1>Seus dados</h1>
+
+<%= form_for @seller do |f| %>
+
+    <%= flash[:notice] %>
+
+	<br>
+
+    <%= f.label "Nome" %>
+    <%= f.text_field :nome, required: true %>
+
+    <%= f.label "Email" %>
+    <%= f.text_field :email, required: true %>
+
+    <%= f.label "Apelido" %>
+    <%= f.text_field :apelido, required: true %>
+
+    <%= f.label "CNPJ" %>
+    <%= f.text_field :cnpj, required: true %>
+
+    <%= f.label "Descrição" %>
+    <%= f.text_field :descricao, required: true %>
+
+    <%= f.label "Senha" %>
+    <%= f.password_field :password %>
+    <%= f.label "Confirme sua senha" %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Atualizar" %>
+<% end %>

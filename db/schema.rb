@@ -11,33 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611024627) do
+ActiveRecord::Schema.define(version: 20170611200516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "buyers", force: :cascade do |t|
-    t.string   "nome",            null: false
-    t.string   "email",           null: false
-    t.integer  "cpf",             null: false
+    t.string   "nome",                      null: false
+    t.string   "email",                     null: false
+    t.integer  "cpf",                       null: false
     t.integer  "cnpj"
-    t.string   "endereco",        null: false
-    t.integer  "numero",          null: false
-    t.string   "complemento",     null: false
-    t.integer  "cep",             null: false
-    t.string   "bairro",          null: false
-    t.string   "cidade",          null: false
-    t.string   "uf",              null: false
-    t.integer  "telresidencial",  null: false
+    t.string   "endereco",                  null: false
+    t.integer  "numero",                    null: false
+    t.string   "complemento",               null: false
+    t.integer  "cep",                       null: false
+    t.string   "bairro",                    null: false
+    t.string   "cidade",                    null: false
+    t.string   "uf",              limit: 2, null: false
+    t.integer  "telresidencial",            null: false
     t.integer  "telcomercial"
-    t.integer  "celular",         null: false
-    t.string   "password_digest", null: false
+    t.integer  "celular",                   null: false
+    t.string   "password_digest",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "charts", force: :cascade do |t|
     t.integer "quantidade"
+    t.integer "product_id"
+    t.integer "buyer_id"
   end
 
   create_table "payment_types", force: :cascade do |t|
@@ -91,13 +93,13 @@ ActiveRecord::Schema.define(version: 20170611024627) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string   "nome",       null: false
-    t.integer  "telefone1",  null: false
+    t.string   "nome",                 null: false
+    t.integer  "telefone1",            null: false
     t.integer  "telefone2"
-    t.string   "endereco",   null: false
-    t.integer  "numero",     null: false
-    t.string   "cidade",     null: false
-    t.string   "uf",         null: false
+    t.string   "endereco",             null: false
+    t.integer  "numero",               null: false
+    t.string   "cidade",               null: false
+    t.string   "uf",         limit: 2, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "seller_id"
@@ -113,14 +115,8 @@ ActiveRecord::Schema.define(version: 20170611024627) do
     t.string "password_digest"
   end
 
-  create_table "widgets", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "stock"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
+  add_foreign_key "charts", "buyers"
+  add_foreign_key "charts", "products"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "sellers"
 end

@@ -11,7 +11,7 @@ class SellerSessionsController < ApplicationController
         if @seller && @seller.authenticate(params[:password])
             session[:seller_id] = @seller.id
             flash[:notice] = nil
-            redirect_to seller_path(@seller)
+            redirect_to home_index_path
         else
             flash[:notice] = "Não foi possível completar o login. Por favor verificar os dados novamente."
             redirect_to '/seller-login'

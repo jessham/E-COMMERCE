@@ -1,0 +1,40 @@
+<h1>Detalhes do produto</h1>
+
+    <%= flash[:notice] %>
+
+	<br>
+
+Nome: <%= @product.nome %>
+Código: <%= @product.codigo %>
+Descrição: <%= @product.descricao %>
+Preço normal: <%= @product.preconormal %>
+Preço promocional: <%= @product.precopromocional %>
+Estoque atual: <%= @product.estoqueatual %>
+Estoque máximo: <%= @product.estoquemax %>
+
+<br>Loja:<br>
+Nome: <%= @store.nome %>
+Endereço: <%= @store.endereco %>
+Número: <%= @store.numero %>
+Cidade: <%= @store.cidade %>
+UF: <%= @store.uf %>
+Telefone 1: <%= @store.telefone1 %>
+Telefone 2: <%= @store.telefone2 %>
+
+<br>Quantidade:
+<%= number_field(@quantidade, :quantity, in: 1..@product.estoqueatual) %>
+
+<br>
+<% if current_buyer %>
+    <%= button_to "Adicionar no carrinho", :controller => "/charts",
+    									   :action => "create",
+    									   :product_id => @product,
+										   :quantidade => :quantity,
+    									   :method => :post %>
+<% else %>
+<%= link_to "Adicionar no carrinho", '' %>
+(É necessário logar para poder adicionar no carrinho)
+<% end %>
+
+<br>
+<%= link_to "Voltar para Produtos", buyer_products_path %>

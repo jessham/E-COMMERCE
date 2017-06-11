@@ -1,0 +1,17 @@
+<h1>Produtos</h1>
+
+<% if @products %>
+    <% @products.each do |p| %>
+        Nome: <%= p.nome %>
+        Descrição: <%= p.descricao %>
+        Preço normal: <%= p.preconormal %>
+        Preço promocional: <%= p.precopromocional %>
+        <%= link_to "Ver mais detalhes", buyer_product_path(p) %>
+        <br>
+    <% end %>
+<% else %>
+    Nenhum produto encontrado.
+<% end %>
+
+<br>
+<%= link_to "Voltar para página inicial", home_index_path %>

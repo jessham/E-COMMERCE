@@ -6,13 +6,39 @@
   Bem vindo, <%= current_buyer.nome %>!
 </p>
 
-<%= link_to "Perfil", edit_buyer_path(current_buyer) %>
+<%= flash[:notice] %>
 
-<%= link_to "Carrinho", ''%>
+	<br>
+
+<%= link_to "Seus dados", edit_buyer_path(current_buyer) %>
+
+<%= link_to "Carrinho", charts_path %>
 
 <%= link_to "Sua compra", ''%>
 
 <%= link_to "Sair", '/buyer-logout'%>
+
+<% elsif current_seller %>
+
+<p>
+  Bem vindo, <%= current_seller.nome %>! <%= link_to "Sair", '/seller-logout'%>
+</p>
+
+<%= flash[:notice] %>	<br>
+
+<%= link_to "Veja suas vendas", '' %>
+
+<br>
+
+<%= link_to "Cadastrar uma loja", new_store_path %>
+
+<%= link_to "Veja suas lojas", stores_path(session[:seller_id]) %>
+
+<br>
+
+<%= link_to "Cadastrar um produto", '' %>
+
+<%= link_to "Veja seus produtos", seller_products_path %>
 
 <% else %>
 
@@ -32,4 +58,4 @@
 
 <br>
 
-<%= link_to "Produtos", ''%>
+<%= link_to "Produtos", buyer_products_path %>

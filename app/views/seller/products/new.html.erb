@@ -1,7 +1,6 @@
 <h1>Cadastro de produto</h1>
-<p>É preciso ter pelo menos uma loja cadastrada para o cadastro de um produto.</p>
 
-<%= form_for @product, :action => :new, :method => :post, :html => {class:""} do |f| %>
+<%= form_for @product do |f| %>
 
     <%= flash[:notice] %>
 
@@ -30,9 +29,9 @@
 
     <%= f.label "Loja" %>
     <% if @stores.empty? %>
-        Não há nenhuma loja cadastrada
+        É necessário ter uma loja cadastrada
     <% else %>
-        <%= f.select :store_id, @stores.collect { |store| [store.nome]}, required: true %>
+        <%= f.select :store_id, @stores.collect { |store| [store.nome, store.id]}, required: true %>
     <% end %>
 
     <%= f.submit "Cadastrar" %>

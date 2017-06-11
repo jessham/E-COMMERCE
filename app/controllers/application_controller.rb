@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_buyer
 
   def current_seller
-    @current_seller ||= Seller.find(session[:user_id]) if session[:user_id]
+    @current_seller ||= Seller.find(session[:seller_id]) if session[:seller_id]
   end
   helper_method :current_seller
   

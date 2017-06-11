@@ -1,0 +1,26 @@
+<h1>Carrinho</h1>
+
+<% if @charts.empty? %>
+    Carrinho vazio
+<% else %>
+    <% @total_price = 0 %>
+
+    <% @charts.each do |c| %>
+        <% @product = Product.find(c.product_id) %>
+        <% @total_price = @total_price + @product.precopromocional %>
+        Nome: <%= @product.nome %>
+        Preço: <%= @product.precopromocional %>
+        Quantidade: <%= c.quantidade %>
+
+        <%= button_to "Retirar do carrinho", {:action => "destroy",
+	    									 :id => c},
+    										 :method => :delete, data: { confirm: "Tem certeza que deseja retirar do carrinho?"} %>
+    <% end %>
+
+    <br>
+    Total: <%= @total_price %>
+<% end %>
+
+<br>
+
+<%= link_to "Voltar para página inicial", home_index_path %>

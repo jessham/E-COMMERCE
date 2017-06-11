@@ -1,0 +1,38 @@
+<h1>Editar produto</h1>
+
+<%= form_for @product, :html => {class:""} do |f| %>
+
+    <%= flash[:notice] %>
+
+	<br>
+
+    <%= f.label "Nome" %>
+    <%= f.text_field :nome, required: true %>
+
+    <%= f.label "Código" %>
+    <%= f.text_field :codigo, required: true %>
+
+    <%= f.label "Descrição" %>
+    <%= f.text_field :descricao, required: true %>
+
+    <%= f.label "Preço normal" %>
+    <%= f.text_field :preconormal, required: true %>
+
+    <%= f.label "Preço promocional" %>
+    <%= f.text_field :precopromocional, required: true %>
+
+    <%= f.label "Estoque atual" %>
+    <%= f.text_field :estoqueatual, required: true %>
+
+    <%= f.label "Estoque máximo" %>
+    <%= f.text_field :estoquemax, required: true %>
+
+    <%= f.label "Loja" %>
+    <% if @stores.empty? %>
+        Não há nenhuma loja cadastrada
+    <% else %>
+        <%= f.select :store_id, @stores.collect { |store| [store.nome, store.id]}, required: true %>
+    <% end %>
+
+    <%= f.submit "Atualizar" %>
+<% end %>

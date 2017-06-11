@@ -1,3 +1,4 @@
 class Store < ActiveRecord::Base
-    belongs_to :sellers
+    belongs_to :seller
+    has_many :products
 end

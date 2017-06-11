@@ -1,3 +1,3 @@
 class Shippping < ActiveRecord::Base
-    belongs_to :purchases
+    belongs_to :purchase
 end

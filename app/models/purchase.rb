@@ -1,4 +1,4 @@
 class Purchase < ActiveRecord::Base
     has_many :products
-    belongs_to :buyers
+    belongs_to :buyer
 end

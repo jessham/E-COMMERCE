@@ -1,0 +1,15 @@
+<h1>Suas lojas físicas cadastradas</h1>
+
+<%= flash[:notice] %>	<br>
+
+<% @stores.each do |s| %>
+    <%= link_to s.nome, edit_store_path(s) %>
+<% end %>
+
+<br>
+
+<%= link_to "Cadastrar uma loja", new_store_path %>
+
+<br>
+
+<%= link_to "Voltar para página inicial", home_index_path %>
