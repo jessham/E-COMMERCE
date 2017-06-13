@@ -9,16 +9,21 @@ class ChartsController < ApplicationController
     end
 
     def create
-        @chart = Chart.new
-        @chart.buyer_id = session[:buyer_id]
-        @chart.product_id = params[:product_id]
-        @chart.quantidade = params[:quantidade]
-        if @chart.save
-            flash[:notice] = "Adicionado ao carrinho."
+        if @purchase = Purchase.find_by(buyer_id: session[:buyer_id])
+            flash[:notice] = "Não foi possível adicionar ao carrinho. Compra em andamento."
             redirect_to buyer_product_path(params[:product_id])
         else
-            flash[:notice] = "Não foi possível adicionar ao carrinho."
-            redirect_to buyer_product_path(params[:product_id])
+            @chart = Chart.new
+            @chart.buyer_id = session[:buyer_id]
+            @chart.product_id = params[:product_id]
+            @chart.quantidade = params[:quantidade]
+            if @chart.save
+                flash[:notice] = "Adicionado ao carrinho."
+                redirect_to charts_path
+            else
+                flash[:notice] = "Não foi possível adicionar ao carrinho."
+                redirect_to buyer_product_path(params[:product_id])
+            end
         end
     end
 

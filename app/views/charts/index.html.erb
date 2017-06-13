@@ -10,7 +10,7 @@
         <% @total_price = @total_price + @product.precopromocional %>
         Nome: <%= @product.nome %>
         Preço: <%= @product.precopromocional %>
-        Quantidade: <%= c.quantidade %>
+        <!-- Quantidade: <%= c.quantidade %> -->
 
         <%= button_to "Retirar do carrinho", {:action => "destroy",
 	    									 :id => c},
@@ -19,6 +19,11 @@
 
     <br>
     Total: <%= @total_price %>
+
+    <br>
+    <%= button_to "Finalizar compra", {:controller => "purchases",
+    											:action => "create",
+    											:method => :post} %>
 <% end %>
 
 <br>

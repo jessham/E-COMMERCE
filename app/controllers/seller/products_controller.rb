@@ -25,7 +25,7 @@ class Seller::ProductsController < ApplicationController
         begin
             if @product.save
                 flash[:notice] = "Produto cadastrado."
-                redirect_to new_seller_product_path
+                redirect_to seller_products_path
             else
                 flash[:notice] = "Não foi possível completar o cadastro. Por favor verificar os dados novamente."
                 redirect_to new_seller_product_path
@@ -52,6 +52,13 @@ class Seller::ProductsController < ApplicationController
             flash[:notice] = "Não foi possível atualizar os dados. Por favor verificar os dados novamente."
             redirect_to edit_seller_product_path(@product)
         end
+    end
+
+    def destroy
+        @product = Product.find(params[:id])
+
+        @product.destroy
+        redirect_to seller_products_path
     end
 
     private

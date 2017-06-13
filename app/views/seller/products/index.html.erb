@@ -7,12 +7,8 @@
 <% else %>
     <% @stores.each do |s| %>
         <% @products = Product.where(store_id: s.id) %>
-        <% if @products.empty? %>
-            Não há produtos cadastrados
-        <% else %>
-            <% @products.each do |p| %>
-                <%= link_to p.nome, edit_product_path(p) %>
-            <% end %>
+        <% @products.each do |p| %>
+            <%= link_to p.nome, edit_seller_product_path(p) %>
         <% end %>
     <% end %>
 <% end %>

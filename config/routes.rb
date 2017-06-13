@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :buyers
   resources :sellers
   resources :stores
-  
   resources :charts
+  resources :purchases
 
   get '/buyer-login' => 'buyer_sessions#new'
   post '/buyer-login' => 'buyer_sessions#create'

@@ -21,15 +21,14 @@ UF: <%= @store.uf %>
 Telefone 1: <%= @store.telefone1 %>
 Telefone 2: <%= @store.telefone2 %>
 
-<br>Quantidade:
-<%= number_field(@quantidade, :quantity, in: 1..@product.estoqueatual) %>
+<% number_field(@quantidade, :quantity, in: 1..@product.estoqueatual) %>
 
 <br>
 <% if current_buyer %>
-    <%= button_to "Adicionar no carrinho", :controller => "/charts",
+    <%= button_to "Adicionar no carrinho", {:controller => "/charts",
     									   :action => "create",
     									   :product_id => @product,
-										   :quantidade => :quantity,
+										   :quantidade => @quantidade},
     									   :method => :post %>
 <% else %>
 <%= link_to "Adicionar no carrinho", '' %>

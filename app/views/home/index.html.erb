@@ -14,7 +14,7 @@
 
 <%= link_to "Carrinho", charts_path %>
 
-<%= link_to "Sua compra", ''%>
+<%= link_to "Acompanhe sua compra", purchases_path %>
 
 <%= link_to "Sair", '/buyer-logout'%>
 
@@ -24,9 +24,7 @@
   Bem vindo, <%= current_seller.nome %>! <%= link_to "Sair", '/seller-logout'%>
 </p>
 
-<%= flash[:notice] %>	<br>
-
-<%= link_to "Veja suas vendas", '' %>
+<%= flash[:notice] %>
 
 <br>
 

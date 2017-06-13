@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611200516) do
+ActiveRecord::Schema.define(version: 20170613225131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,11 +59,17 @@ ActiveRecord::Schema.define(version: 20170611200516) do
     t.integer  "estoquemax",       null: false
   end
 
+  create_table "purchase_products", force: :cascade do |t|
+    t.integer "purchase_id"
+    t.integer "product_id"
+  end
+
   create_table "purchases", force: :cascade do |t|
     t.boolean  "isconcluida", null: false
     t.boolean  "isativa",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "buyer_id"
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -118,5 +124,8 @@ ActiveRecord::Schema.define(version: 20170611200516) do
   add_foreign_key "charts", "buyers"
   add_foreign_key "charts", "products"
   add_foreign_key "products", "stores"
+  add_foreign_key "purchase_products", "products"
+  add_foreign_key "purchase_products", "purchases"
+  add_foreign_key "purchases", "buyers"
   add_foreign_key "stores", "sellers"
 end

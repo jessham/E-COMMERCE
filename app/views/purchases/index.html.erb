@@ -1,0 +1,28 @@
+<h1>Acompanhe sua compra</h1>
+
+<% if @purchase %>
+    <% @total_price = 0 %>
+    <% @purchase_products.each do |c| %>
+        <% @product = Product.find(c.product_id) %>
+        <% @total_price = @total_price + @product.precopromocional %>
+        Nome: <%= @product.nome %>
+        Preço: <%= @product.precopromocional %>
+        <br>
+        Total: <%= @total_price %>
+        <br><br>
+        Status: não concluído
+        <br>
+        <%= button_to "Cancelar compra", 
+              									{:controller => "purchases",
+    											:action => "destroy",
+    											:id => @purchase},
+    											:method => :delete,
+    											data: { confirm: "Tem certeza que deseja cancelar a compra?"} %>
+    <% end %>
+<% else %>
+    Nenhuma compra realizada
+<% end %>
+
+<br>
+
+<%= link_to "Voltar para página inicial", home_index_path %>

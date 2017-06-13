@@ -1,6 +1,6 @@
 <h1>Cadastro de produto</h1>
 
-<%= form_for @product do |f| %>
+<%= form_for [:seller, @product] do |f| %>
 
     <%= flash[:notice] %>
 
@@ -36,3 +36,7 @@
 
     <%= f.submit "Cadastrar" %>
 <% end %>
+
+<br>
+
+<%= link_to "Voltar para página inicial", home_index_path %>
