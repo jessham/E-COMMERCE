@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613225131) do
+ActiveRecord::Schema.define(version: 20170613235533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,8 +42,21 @@ ActiveRecord::Schema.define(version: 20170613225131) do
     t.integer "buyer_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string   "titulo",     null: false
+    t.string   "conteudo",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+  end
+
   create_table "payment_types", force: :cascade do |t|
     t.string "tipo", null: false
+  end
+
+  create_table "product_tags", force: :cascade do |t|
   end
 
   create_table "products", force: :cascade do |t|
@@ -72,6 +85,14 @@ ActiveRecord::Schema.define(version: 20170613225131) do
     t.integer  "buyer_id"
   end
 
+  create_table "seller_classifications", force: :cascade do |t|
+    t.integer  "nota",       null: false
+    t.string   "comentario", null: false
+    t.boolean  "isativo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sellers", force: :cascade do |t|
     t.string   "nome",            null: false
     t.string   "email",           null: false
@@ -96,6 +117,9 @@ ActiveRecord::Schema.define(version: 20170613225131) do
     t.datetime "dtentrega",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "store_tags", force: :cascade do |t|
   end
 
   create_table "stores", force: :cascade do |t|
