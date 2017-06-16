@@ -1,14 +1,22 @@
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/estilo.css">
+    <title>Produtos</title>
+</head>
+
 <h1>Produtos</h1>
 
 <% if @products.empty? %>
     Nenhum produto encontrado.
 <% else %>
     <% @products.each do |p| %>
-        Nome: <%= p.nome %>
-        Descrição: <%= p.descricao %>
-        Preço normal: <%= p.preconormal %>
-        Preço promocional: <%= p.precopromocional %>
-        <%= link_to "Ver mais detalhes", buyer_product_path(p) %>
+    	<!-- BRUNO: Adicionado os <div> para quebrar a linha e colocar espacamento no comeco da linha -->
+        <div><b>Nome: </b><%= p.nome %></div>
+        <div>&nbsp&nbsp&nbsp Descrição: <%= p.descricao %></div>
+        <div>&nbsp&nbsp&nbsp Preço normal: <%= p.preconormal %></div>
+        <div>&nbsp&nbsp&nbsp Preço promocional: <%= p.precopromocional %></div>
+        <div>&nbsp&nbsp&nbsp <%= link_to "Ver mais detalhes", buyer_product_path(p) %></div>
         <br>
     <% end %>
 <% end %>

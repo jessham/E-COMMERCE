@@ -1,25 +1,33 @@
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/estilo.css">
+    <title>Detalhes do produto</title>
+</head>
+
 <h1>Detalhes do produto</h1>
 
     <%= flash[:notice] %>
 
 	<br>
 
-Nome: <%= @product.nome %>
-Código: <%= @product.codigo %>
-Descrição: <%= @product.descricao %>
-Preço normal: <%= @product.preconormal %>
-Preço promocional: <%= @product.precopromocional %>
-Estoque atual: <%= @product.estoqueatual %>
-Estoque máximo: <%= @product.estoquemax %>
+<div>Nome: <%= @product.nome %></div>
+<div>Codigo: <%= @product.codigo %></div>
+<div>Descricao: <%= @product.descricao %></div>
+<div>Preco normal: <%= @product.preconormal %></div>
+<div>Preco promocional: <%= @product.precopromocional %></div>
+<div>Estoque atual: <%= @product.estoqueatual %></div>
+<div>Estoque maximo: <%= @product.estoquemax %></div>
 
-<br>Loja:<br>
-Nome: <%= @store.nome %>
-Endereço: <%= @store.endereco %>
-Número: <%= @store.numero %>
-Cidade: <%= @store.cidade %>
-UF: <%= @store.uf %>
-Telefone 1: <%= @store.telefone1 %>
-Telefone 2: <%= @store.telefone2 %>
+
+<h2>Loja:</h2>
+<div>Nome: <%= @store.nome %></div>
+<div>Endereco: <%= @store.endereco %></div>
+<div>Numero: <%= @store.numero %></div>
+<div>Cidade: <%= @store.cidade %></div>
+<div>UF: <%= @store.uf %></div>
+<div>Telefone 1: <%= @store.telefone1 %></div>
+<div>Telefone 2: <%= @store.telefone2 %></div>
 
 <% number_field(@quantidade, :quantity, in: 1..@product.estoqueatual) %>
 
@@ -32,7 +40,7 @@ Telefone 2: <%= @store.telefone2 %>
     									   :method => :post %>
 <% else %>
 <%= link_to "Adicionar no carrinho", '' %>
-(É necessário logar como comprador para poder adicionar no carrinho)
+<b>(É necessário logar como comprador para poder adicionar no carrinho)</b>
 <% end %>
 
 <br>

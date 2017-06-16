@@ -1,14 +1,21 @@
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/estilo.css">
+    <title>Seus Produtos Cadastrados</title>
+</head>
+
 <h1>Seus produtos cadastrados</h1>
 
 <%= flash[:notice] %>	<br>
 
 <% if @stores.empty? %>
-    Não há produtos cadastrados
+    <b>Nao existem produtos cadastrados</b>
 <% else %>
     <% @stores.each do |s| %>
         <% @products = Product.where(store_id: s.id) %>
         <% @products.each do |p| %>
-            <%= link_to p.nome, edit_seller_product_path(p) %>
+            <div><%= link_to p.nome, edit_seller_product_path(p) %></div>
         <% end %>
     <% end %>
 <% end %>

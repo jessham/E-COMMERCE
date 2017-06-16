@@ -1,5 +1,7 @@
 class SellerSessionsController < ApplicationController
 
+    layout 'application'
+
     def new
 
     end

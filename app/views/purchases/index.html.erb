@@ -1,16 +1,22 @@
-<h1>Acompanhe sua compra</h1>
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Acompanhe sua Compra</title>
+</head>
+
+<h1>Acompanhe sua Compra</h1>
 
 <% if @purchase %>
     <% @total_price = 0 %>
     <% @purchase_products.each do |c| %>
         <% @product = Product.find(c.product_id) %>
         <% @total_price = @total_price + @product.precopromocional %>
-        Nome: <%= @product.nome %>
-        Preço: <%= @product.precopromocional %>
-        <br>
+        <div><b>Nome: </b><%= @product.nome %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Preço: </b><%= @product.precopromocional %></div>
+        <br><br>
         Total: <%= @total_price %>
         <br><br>
-        Status: não concluído
+        Status: Nao Concluido.
         <br>
         <%= button_to "Cancelar compra", 
               									{:controller => "purchases",
@@ -20,7 +26,7 @@
     											data: { confirm: "Tem certeza que deseja cancelar a compra?"} %>
     <% end %>
 <% else %>
-    Nenhuma compra realizada
+    <b>Nenhuma compra realizada</b>
 <% end %>
 
 <br>

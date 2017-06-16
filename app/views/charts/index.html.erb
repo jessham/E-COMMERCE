@@ -1,15 +1,21 @@
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Carrinho</title>
+</head>
+
 <h1>Carrinho</h1>
 
 <% if @charts.empty? %>
-    Carrinho vazio
+    <b>Carrinho vazio</b>
 <% else %>
     <% @total_price = 0 %>
 
     <% @charts.each do |c| %>
         <% @product = Product.find(c.product_id) %>
         <% @total_price = @total_price + @product.precopromocional %>
-        Nome: <%= @product.nome %>
-        Preço: <%= @product.precopromocional %>
+        <div><b>Nome: </b><%= @product.nome %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Preco: </b><%= @product.precopromocional %></div>
         <!-- Quantidade: <%= c.quantidade %> -->
 
         <%= button_to "Retirar do carrinho", {:action => "destroy",
@@ -18,7 +24,8 @@
     <% end %>
 
     <br>
-    Total: <%= @total_price %>
+    <br>
+    <b>Total: </b><%= @total_price %>
 
     <br>
     <%= button_to "Finalizar compra", {:controller => "purchases",

@@ -1,10 +1,17 @@
+	<!-- adicionado o estilo.css -->
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../css/estilo.css">
+	<title>E-COMMERCE - LBD</title>
+</head>
+
 <h1>E-COMMERCE - LBD</h1>
 
 <% if current_buyer %>
-
-<p>
+<!-- BRUNO: alterado de <p> para <h2> -->
+<h2>
   Bem vindo, <%= current_buyer.nome %>!
-</p>
+</h2>
 
 <%= flash[:notice] %>
 
@@ -20,9 +27,10 @@
 
 <% elsif current_seller %>
 
-<p>
+<!-- BRUNO: alterado de <p> para <h2> -->
+<h2>
   Bem vindo, <%= current_seller.nome %>! <%= link_to "Sair", '/seller-logout'%>
-</p>
+</h2>
 
 <%= flash[:notice] %>
 
@@ -40,9 +48,10 @@
 
 <% else %>
 
-<p>
+<!-- BRUNO: alterado de <p> para <h2> -->
+<h2>
   Bem vindo!
-</p>
+</h2>
 
 <%= link_to "Login", '/buyer-login' %>
 

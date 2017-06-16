@@ -1,5 +1,7 @@
 class PurchasesController < ApplicationController
 
+    layout 'application'
+
     def index
         @purchase = Purchase.find_by(buyer_id: session[:buyer_id])
         if @purchase

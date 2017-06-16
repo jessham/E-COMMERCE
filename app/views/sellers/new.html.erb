@@ -1,3 +1,10 @@
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Cadastro de Vendedor</title>
+</head>
+
 <h1>Cadastro de vendedor</h1>
 
 <%= form_for @seller, :action => :new, :method => :post, :html => {class:""} do |f| %>
@@ -9,22 +16,37 @@
     <%= f.label "Nome" %>
     <%= f.text_field :nome, required: true %>
 
+    <br>
+
     <%= f.label "Email" %>
     <%= f.text_field :email, required: true %>
+
+    <br>
 
     <%= f.label "Apelido" %>
     <%= f.text_field :apelido, required: true %>
 
+    <br>
+
     <%= f.label "CNPJ" %>
     <%= f.text_field :cnpj, required: true %>
+
+    <br>
 
     <%= f.label "Descrição" %>
     <%= f.text_field :descricao, required: true %>
 
+    <br>
+
     <%= f.label "Senha" %>
     <%= f.password_field :password, required: true %>
+
+    <br>
+
     <%= f.label "Confirme sua senha" %>
     <%= f.password_field :password_confirmation, required: true %>
+
+    <br>
 
     <%= f.submit "Cadastrar" %>
 <% end %>

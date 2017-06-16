@@ -1,9 +1,16 @@
-<h1>Suas lojas físicas cadastradas</h1>
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Suas Lojas Fisicas Cadastradas</title>
+</head>
+
+<h1>Suas lojas fisicas cadastradas</h1>
 
 <%= flash[:notice] %>	<br>
 
 <% @stores.each do |s| %>
-    <%= link_to s.nome, edit_store_path(s) %>
+    <div><%= link_to s.nome, edit_store_path(s) %></div>
 <% end %>
 
 <br>

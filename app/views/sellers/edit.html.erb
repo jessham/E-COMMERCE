@@ -1,3 +1,10 @@
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Seus Dados</title>
+</head>
+
 <h1>Seus dados</h1>
 
 <%= form_for @seller do |f| %>
@@ -9,22 +16,37 @@
     <%= f.label "Nome" %>
     <%= f.text_field :nome, required: true %>
 
+    <br>
+
     <%= f.label "Email" %>
     <%= f.text_field :email, required: true %>
+
+    <br>
 
     <%= f.label "Apelido" %>
     <%= f.text_field :apelido, required: true %>
 
+    <br>
+
     <%= f.label "CNPJ" %>
     <%= f.text_field :cnpj, required: true %>
 
-    <%= f.label "Descrição" %>
+    <br>
+
+    <%= f.label "Descricao" %>
     <%= f.text_field :descricao, required: true %>
+
+    <br>
 
     <%= f.label "Senha" %>
     <%= f.password_field :password %>
+
+    <br>
+
     <%= f.label "Confirme sua senha" %>
     <%= f.password_field :password_confirmation %>
+
+    <br>
 
     <%= f.submit "Atualizar" %>
 <% end %>

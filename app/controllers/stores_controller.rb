@@ -1,5 +1,7 @@
 class StoresController < ApplicationController
 
+    layout 'application'
+
     def index
         @stores = Store.where(seller_id: session[:seller_id])
     end

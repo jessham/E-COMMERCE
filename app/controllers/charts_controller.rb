@@ -1,5 +1,7 @@
 class ChartsController < ApplicationController
 
+    layout 'application'
+
     def index
         @charts = Chart.where(buyer_id: session[:buyer_id])
     end

@@ -1,4 +1,11 @@
-<h1>Sua loja física</h1>
+<!-- adicionado o estilo.css -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Loja Fisica</title>
+</head>
+
+<h1>Sua loja fisica</h1>
 
 <%= form_for @store do |f| %>
 
@@ -9,23 +16,41 @@
     <%= f.label "Nome" %>
     <%= f.text_field :nome, required: true %>
 
+    <br>
+
     <%= f.label "Telefone 1" %>
     <%= f.text_field :telefone1, required: true %>
+
+    <br>
 
     <%= f.label "Telefone 2" %>
     <%= f.text_field :telefone2, required: true %>
 
-    <%= f.label "Endereço" %>
+    <br>
+
+    <%= f.label "Endereco" %>
     <%= f.text_field :endereco, required: true %>
+
+    <br>
             
-    <%= f.label "Número" %>
+    <%= f.label "Numero" %>
     <%= f.text_field :numero, required: true %>
+
+    <br>
             
     <%= f.label "Cidade" %>
     <%= f.text_field :cidade, required: true %>
+
+    <br>
             
     <%= f.label "Estado" %>
     <%= f.text_field :uf, required: true %>
 
+    <br>
+
     <%= f.submit "Atualizar" %>
 <% end %>
+
+<br>
+
+<%= link_to "Voltar para página inicial", home_index_path %>

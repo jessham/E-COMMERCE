@@ -1,5 +1,7 @@
 class BuyersController < ApplicationController
 
+    layout 'application'
+
     def show
         @buyer = Buyer.find(params[:id])
     end
